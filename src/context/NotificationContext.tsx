@@ -1,29 +1,25 @@
 import React, { createContext, ReactNode, useContext, useState } from "react";
 
-// Определяем тип для уведомлений
 type Notification = {
   id: number;
   message: string;
   type: string;
 };
 
-// Определяем тип для контекста
 type NotificationContextType = {
   notifications: Notification[];
   handleAddNotification: (message: string, type: string) => void;
   handleRemoveNotification: (id: number) => void;
 };
 
-// Создаем контекст с начальным значением undefined
-export const NotificationContext = createContext<
-  NotificationContextType | undefined
->(undefined);
+const NotificationContext = createContext<NotificationContextType | undefined>(
+  undefined
+);
 
 interface NotificationProviderProps {
   children: ReactNode;
 }
 
-// Компонент провайдера
 export const NotificationProvider: React.FC<NotificationProviderProps> = ({
   children,
 }) => {
@@ -53,7 +49,6 @@ export const NotificationProvider: React.FC<NotificationProviderProps> = ({
   );
 };
 
-// Хук для использования контекста
 export const useNotificationContext = () => {
   const context = useContext(NotificationContext);
   if (!context) {

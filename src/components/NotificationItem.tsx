@@ -23,7 +23,7 @@ const NotificationItem: React.FC<NotificationItemProps> = ({
       <p>
         {notification.message} - {notification.type}
       </p>
-      <button onClick={handleClick}>Close</button>
+      <button onClick={handleClick}>X</button>
     </div>
   );
 };

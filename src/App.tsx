@@ -1,13 +1,21 @@
 import "./App.css";
+import AddNotificationForm from "./components/AddNotificationForm";
+import EditUserProfileForm from "./components/EditUserProfileForm";
 import NotificationList from "./components/NotificationList";
-import NotificationItem from "./components/NotificationItem";
+import UserProfileDisplay from "./components/UserProfileDisplay";
 import { NotificationProvider } from "./context/NotificationContext";
+import { UserProfileProvider } from "./context/UserProfileContext";
 
 function App() {
   return (
     <NotificationProvider>
-      <NotificationItem />
-      <NotificationList />
+      <UserProfileProvider>
+        <EditUserProfileForm />
+        <UserProfileDisplay />
+
+        <AddNotificationForm />
+        <NotificationList />
+      </UserProfileProvider>
     </NotificationProvider>
   );
 }
